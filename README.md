@@ -222,3 +222,6 @@ firebase deploy
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+Here's how the database storage looks like:
+<img width="1530" height="581" alt="image" src="https://github.com/user-attachments/assets/d3611247-7e38-412c-9132-19c3f44b47cb" />
