@@ -15,7 +15,7 @@
   <span class="spacer"></span>
 
   <!-- Logout button (only shows if user is signed in) -->
-  <button mat-button *ngIf="user" (click)="logout()" class="logout-btn">
+  <button mat-button *ngIf="user && showLogout" (click)="logout()" class="logout-btn">
     LOGOUT
   </button>
 </mat-toolbar>

@@ -8,11 +8,12 @@
 // ======================================================
 
 import { Component } from '@angular/core';
-import { RouterOutlet, Router } from '@angular/router';
+import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { Auth, signOut, User } from '@angular/fire/auth';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root', // Root component, used in index.html
@@ -31,6 +32,7 @@ export class AppComponent {
   // Current authenticated user
   // -------------------------------
   user: User | null = null;
+  showLogout = false; // Controls visibility of logout button
 
   constructor(
     private auth: Auth,   // Firebase Auth service
@@ -39,7 +41,15 @@ export class AppComponent {
     // Track authentication state
     // Whenever the user signs in/out, this callback fires
     this.auth.onAuthStateChanged(u => this.user = u);
-  }
+      // Listen for route changes
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe((event: any) => {
+        const currentUrl = event.url;
+        // Only show logout on /flight and /done
+        this.showLogout = currentUrl.includes('/flight') || currentUrl.includes('/done');
+      });
+    }
 
   // -------------------------------
   // Logout Function
