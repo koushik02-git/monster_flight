@@ -95,30 +95,55 @@ firebase deploy --only hosting
 ## 🗂️ Project Structure
 monster-flight/
 │
+
 ├── src/
+
 │   ├── app/
+
 │   │   ├── pages/
+
 │   │   │   ├── login/        # Login page (Google/Phone auth)
+
 │   │   │   ├── flight/       # Flight form (guest fills arrival details)
+
 │   │   │   └── done/         # Confirmation page (success message + update option)
+
 │   │   ├── services/
+
 │   │   │   └── customer.service.ts  # Handles Firestore queries & customer caching
+
 │   │   ├── app.routes.ts    # Application routing (login → flight → done)
+
 │   │   ├── auth-guard.ts    # Ensures only valid guests can access pages
+
 │   │   └── app.config.ts    # Firebase & Angular app configuration
+
 │   │
+
 │   ├── assets/
+
 │   │   ├── logo.png         # Monster Reservations Group logo
+
 │   │   └── login-background.png # Background styling (optional)
+
 │   │
+
 │   ├── styles.scss          # Global SCSS styles
+
 │   └── index.html           # Main entry point
+
 │
+
 ├── dist/monster-flight/     # Production build output (deploys to Firebase Hosting)
+
 ├── angular.json             # Angular project config
+
 ├── firebase.json            # Firebase hosting config
+
 ├── .firebaserc              # Firebase project alias
+
 ├── package.json             # Dependencies & scripts
+
 └── README.md                # Project documentation (this file)
 
 ## 🔗 API Integration
