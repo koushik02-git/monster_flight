@@ -1,0 +1,38 @@
+// ======================================================
+// app.css (toolbar styles)
+// ======================================================
+// This file defines the global header (toolbar) styles
+// used across the application. The toolbar holds:
+//   - The Monster logo (centered)
+//   - The Logout button (aligned right)
+// ======================================================
+
+.app-toolbar {
+  background-color: #2e7d32; // Monster green brand color
+  color: white;              // White text/icons for contrast
+  height: 130px;             // Increased height for a bold header
+  width: 100%;               // Full width across the screen
+  display: flex;             // Flexbox layout for alignment
+  align-items: center;       // Vertically center contents
+  position: relative;        // Needed for absolute positioning of logout button
+
+  .header-logo {
+    // Logo in the center of the toolbar
+    height: 100px;           // Large logo size
+    margin: 0 auto;          // Horizontally centered
+    display: block;
+  }
+
+  .logout-btn {
+    // Logout button aligned to the right
+    position: absolute;      // Take it out of normal flow
+    right: 2rem;             // Space from right edge
+    top: 50%;                // Align vertically in the middle
+    transform: translateY(-50%); // Adjust to perfect center alignment
+    color: white !important; // Ensure text color stays white
+    font-weight: bold;       // Make button text stand out
+    background: none;        // Transparent background
+    border: none;            // No border
+    cursor: pointer;         // Show pointer on hover
+  }
+}

@@ -1,0 +1,190 @@
+// ======================================================
+// login.scss - Styles for the Login Page
+// ======================================================
+// This file defines the styling for the login page,
+// ensuring it matches the green/white Monster branding
+// and provides a clean, user-friendly experience.
+// ======================================================
+
+.login-container {
+  // Main login card container
+  max-width: 435px;                     // width of login box
+  margin: 5rem auto;                    // centers vertically & horizontally
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.9); // slightly transparent white
+  border-radius: 12px;                  // rounded corners
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); // subtle shadow
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.logo {
+  // Logo image at the top of login box
+  width: 140px;
+  margin-bottom: 1rem;
+}
+
+.welcome-text {
+  // Main welcome message
+  color: #2e7d32;        // Monster green
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.subtitle {
+  // Subtitle below welcome message
+  color: #777;           // muted grey
+  margin-bottom: 2rem;
+}
+
+.google-btn, .otp-btn {
+  // Shared button styles
+  width: 100%;
+  margin: 0.8rem 0;
+  padding: 0.7rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+// ---------------------------
+// Google Sign-In Button
+// ---------------------------
+.google-btn {
+  display: flex;                 // logo + text side by side
+  align-items: center;           // vertically center content
+  justify-content: center;       // horizontally center
+  gap: 8px;                      // spacing between logo and text
+  background: #fff;              // white background
+  border: 1px solid #ccc;
+  color: #444;                   // dark grey text
+  font-weight: 500;
+  cursor: pointer;
+
+  svg {
+    // Google "G" icon size
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;              // prevents squashing
+  }
+
+  span {
+    line-height: 1;              // keeps text vertically aligned
+  }
+}
+
+.google-btn:hover {
+  // Hover effect for Google button
+  background: #f5f5f5;
+}
+
+// ---------------------------
+// Phone OTP Button
+// ---------------------------
+.otp-btn {
+  background: #2e7d32;           // Monster green
+  color: white;
+  border: none;
+}
+.otp-btn:hover {
+  background: #256628;           // darker green on hover
+}
+
+// ---------------------------
+// Divider between options
+// ---------------------------
+.divider {
+  margin: 1.5rem 0;
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+// ---------------------------
+// Phone Number Input Section
+// ---------------------------
+.phone-input {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+
+  .country-code,
+  .phone-number {
+    // both fields styled same
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+  }
+
+  .country-code {
+    width: 30%;  // shorter input for +1, +91 etc.
+  }
+  .phone-number {
+    width: 70%;  // larger input for actual phone number
+  }
+}
+
+// ---------------------------
+// reCAPTCHA Box
+// ---------------------------
+#recaptcha-container {
+  display: flex;
+  justify-content: center; // center captcha
+  margin: 1rem auto;
+}
+
+// ---------------------------
+// OTP Verification Section
+// ---------------------------
+.otp-section {
+  margin-top: 1rem;
+
+  input {
+    // OTP input box
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 0.8rem;
+  }
+
+  button {
+    // Verify OTP button
+    width: 100%;
+    background: #2e7d32;
+    color: #fff;
+    border: none;
+    padding: 0.7rem;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #256628;
+  }
+}
+
+// ---------------------------
+// Error Messages
+// ---------------------------
+.error {
+  color: #d32f2f;   // red
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+// ---------------------------
+// Footer (Support Info)
+// ---------------------------
+.support {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #666;      // muted grey
+
+  span {
+    // Highlight CALL in green
+    color: #2e7d32;
+    font-weight: bold;
+  }
+}

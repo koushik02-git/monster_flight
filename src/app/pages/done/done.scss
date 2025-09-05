@@ -1,0 +1,72 @@
+// ======================================================
+// done.scss - Styles for the Confirmation (Done) Page
+// ======================================================
+// This file defines the look of the success page shown after
+// guests submit their flight details. It follows the same
+// green/white theme as login and flight pages, and keeps a
+// friendly, welcoming vibe.
+// ======================================================
+
+.done-container {
+  // Main container for the done page
+  max-width: 800px;                // narrower than flight page for focus
+  margin: 4rem auto;               // centered with space from top
+  padding: 2rem;
+  font-family: Arial, sans-serif;  // clean, readable font
+  text-align: center;              // center-aligns content
+  color: #333;                     // dark grey text
+}
+
+.card {
+  // Card holding the success message
+  background: #fff;                // white background
+  padding: 2rem;
+  border-radius: 12px;             // rounded corners
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); // subtle shadow
+}
+
+.green {
+  // Utility class to highlight important words
+  color: #2e7d32;                  // Monster green
+  font-weight: bold;
+}
+
+.subtitle {
+  // Secondary text style (below main message)
+  color: #666;                     // muted grey
+  margin-bottom: 1rem;
+}
+
+.mt {
+  // Utility margin-top spacing (used for layout adjustments)
+  margin-top: 1.5rem;
+}
+
+.submit-btn {
+  // "Update Details" button styling
+  margin-top: 2rem;
+  padding: 0.8rem 1.5rem;
+  background: #2e7d32;             // Monster green
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.submit-btn:hover {
+  // Hover effect for better interactivity
+  background: #256628;             // darker green
+}
+
+.support {
+  // Footer with support phone number
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: #666;                     // muted grey
+
+  .green {
+    // Highlight "CALL" in footer
+    color: #2e7d32;
+    font-weight: bold;
+  }
+}

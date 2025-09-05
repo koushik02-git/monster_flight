@@ -1,0 +1,67 @@
+<!-- ============================================================
+ login.html - Template for the Login Page
+ ============================================================
+ This is the user-facing layout for login. 
+ It provides:
+   1. Google Sign-In option
+   2. Phone number login with OTP (One-Time Password)
+ The page also includes error messages and support info.
+ ============================================================ -->
+
+<div class="login-container">
+  <!-- Main title / branding -->
+  <h2 class="welcome-text">MONSTER RESERVATIONS GROUP</h2>
+  <p class="subtitle">Please sign in to continue</p>
+
+  <!-- Google Sign-In Button -->
+  <!-- Includes the official Google "G" logo (SVG) + button text -->
+  <button mat-raised-button color="primary" (click)="loginWithGoogle()" class="google-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" style="width:20px; height:20px; margin-right:8px;">
+      <path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 32.9 30.1 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.1 8.1 3.1l6-6C34.5 5.1 29.6 3 24 3 12.3 3 3 12.3 3 24s9.3 21 21 21c10.5 0 20-7.5 20-21 0-1.3-.1-2.3-.3-3z"/>
+      <path fill="#34A853" d="M6.3 14.7l6.6 4.8C14.5 16.1 18.9 14 24 14c3.1 0 5.9 1.1 8.1 3.1l6-6C34.5 5.1 29.6 3 24 3c-8.1 0-15 4.6-18.7 11.7z"/>
+      <path fill="#FBBC05" d="M24 45c5.6 0 10.5-1.9 14.3-5.1l-6.6-5.4C29.6 36.9 27 38 24 38c-6.1 0-10.7-4.1-12.4-9.5l-6.7 5.2C8.9 40.4 15.9 45 24 45z"/>
+      <path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1.1 3.4-3.9 6.3-7.4 7.5l6.6 5.4C38.1 39.3 42 32.5 42 24c0-1.3-.1-2.3-.3-3z"/>
+    </svg>
+    Sign in with Google
+  </button>
+
+  <!-- Error shown if Google login fails or account is not recognized -->
+  <div class="error" *ngIf="googleError">{{ googleError }}</div>
+
+  <!-- Divider between Google and Phone options -->
+  <h3 class="divider">OR</h3>
+
+  <!-- Phone login section -->
+  <div class="phone-input">
+    <!-- Country code input (e.g., +1, +91) -->
+    <input [(ngModel)]="countryCode" placeholder="+1" maxlength="4" class="country-code">
+
+    <!-- Phone number input -->
+    <input [(ngModel)]="phoneNumber" placeholder="Phone Number" class="phone-number"(ngModelChange)="phoneError=''">
+  </div>
+
+  <!-- Error shown if phone number is invalid -->
+  <div class="error" *ngIf="phoneError">{{ phoneError }}</div>
+
+  <!-- reCAPTCHA widget (ensures human verification before OTP is sent) -->
+  <div id="recaptcha-container"></div>
+
+  <!-- Button to send OTP to phone number -->
+  <button mat-raised-button color="accent" (click)="sendOTP()" class="otp-btn">
+    Send OTP
+  </button>
+
+  <!-- OTP verification section (only shows after OTP is sent) -->
+  <div *ngIf="confirmationResult" class="otp-section">
+    <!-- Input for entering the OTP -->
+    <input [(ngModel)]="otp" placeholder="Enter OTP" (keyup.enter)="verifyOTP()">
+
+    <!-- Button to verify the OTP -->
+    <button mat-raised-button (click)="verifyOTP()">Verify OTP</button>
+  </div>
+
+  <!-- Footer with support phone number -->
+  <footer class="support">
+    Questions? CALL: <span>844-648-2229</span>
+  </footer>
+</div>

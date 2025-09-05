@@ -1,0 +1,40 @@
+<!-- ============================================================
+ done.html - Template for the Confirmation (Done) Page
+ ============================================================
+ This page is displayed after the guest submits their flight details.
+ It thanks them, confirms their info has been received, and provides
+ an option to update their details if necessary.
+ ============================================================ -->
+
+<div class="done-container">
+  <!-- Greeting Card (centered confirmation message) -->
+  <div class="card">
+    <!-- Main confirmation headline -->
+    <h2 class="green">You're all set 🎉</h2>
+    <p class="subtitle">We’ve received your arrival details!</p>
+
+    <!-- Personalized message with destination -->
+    <h3>
+      <span class="green">
+        {{ customer?.destination || 'our resort' }}
+      </span>
+      looks forward to welcoming you.
+    </h3>
+
+    <!-- Thank-you note with branding -->
+    <p class="subtitle mt">
+      Thanks for choosing 
+      <span class="green">Monster Reservations Group</span>
+    </p>
+
+    <!-- Update button (takes user back to flight page) -->
+    <button class="submit-btn" (click)="updateDetails()">
+      Update My Details
+    </button>
+  </div>
+
+  <!-- Footer with support contact number -->
+  <footer class="support">
+    Questions? <span class="green">CALL:</span> <strong>844-648-2229</strong>
+  </footer>
+</div>

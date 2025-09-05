@@ -1,0 +1,87 @@
+<!-- ============================================================
+ flight.html - Template for the Flight Details Page
+ ============================================================
+ This page is shown after login. 
+ It has two main parts:
+   1. Reservation details (left side).
+   2. Flight information form (right side).
+ Guests can confirm their trip info and submit their flight details.
+ ============================================================ -->
+
+<div class="flight-container">
+
+  <!-- Greeting Section -->
+  <!-- Personalized welcome message with guest's name + destination -->
+  <h2 class="greeting">
+    Hey {{ customer?.firstName }} {{ customer?.lastName }},
+    <span class="green"><i>We’re excited to welcome you to {{ customer?.destination }}!</i></span>
+  </h2>
+
+  <div class="content">
+    <!-- ==============================
+         LEFT COLUMN: Reservation Info
+         ============================== -->
+    <div class="reservation">
+      <h3 class="green">Find your Reservation Details below:</h3>
+      <p><span class="label">Name:</span> {{ customer?.firstName }} {{ customer?.lastName }}</p>
+      <p><span class="label">Destination:</span> {{ customer?.destination }}</p>
+      <p><span class="label">From/To:</span> {{ tripStart }} - {{ tripEnd }}</p>
+    </div>
+
+    <!-- ==============================
+         RIGHT COLUMN: Flight Form
+         ============================== -->
+    <div class="flight-form">
+      <h3 class="grey">
+        To make your arrival smooth and stress-free, please share your flight ✈️ details below:
+      </h3>
+
+      <!-- Flight Details Form -->
+      <form (ngSubmit)="submitForm()" novalidate>
+        
+        <!-- Airline field -->
+        <label>Airline Name*:</label>
+        <input [(ngModel)]="airline" name="airline" required>
+
+        <!-- Flight number field -->
+        <label>Flight Number*:</label>
+        <input [(ngModel)]="flightNumber" name="flightNumber" required>
+
+        <label for="arrivalDate">Arrival Date *</label>
+        <input 
+          type="date"
+          id="arrivalDate"
+          [(ngModel)]="arrivalDate"
+          name="arrivalDate"
+          [attr.max]="tripEndIso"
+          required
+        >
+        <!-- Error shown if date is invalid or missing -->
+        <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+        <!-- Arrival time -->
+        <label>Arrival Time*:</label>
+        <input type="time" [(ngModel)]="arrivalTime" name="arrivalTime" required>
+
+        <!-- Number of guests -->
+        <label>Number of Guests*:</label>
+        <input type="number" [(ngModel)]="numOfGuests" name="numOfGuests" min="1" required>
+
+        <!-- Optional comments for special requests -->
+        <label>Comments (optional):</label>
+        <textarea [(ngModel)]="comments" name="comments"></textarea>
+
+        <!-- Submit button -->
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+
+      <!-- General error messages -->
+      <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    </div>
+  </div>
+
+  <!-- Footer: Support contact -->
+  <footer class="support">
+    Questions? <span class="green">CALL:</span> <strong>844-648-2229</strong>
+  </footer>
+</div>
